@@ -1,0 +1,17 @@
+Presentacion:
+https://www.canva.com/design/DAGUQgBFix8/5vd6AGUcR2om8TNApfEh7w/edit?utm_content=DAGUQgBFix8&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton
+
+Comando para compilar
+g++ -o asignacion asignacion.cpp -lglpk
+
+
+Para ver el puerto y finalizar 3000
+netstat -ano | findstr :3000
+
+taskkill /F /PID 8132
+
+Coomando para iniciar angular
+npm start
+
+Comando para iniciar node (confirmar que estoy en backend)
+node server.js

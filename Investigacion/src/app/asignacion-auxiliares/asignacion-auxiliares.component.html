@@ -1,0 +1,77 @@
+<div class="container">
+    <h1>Asignación de Auxiliares de Bodega</h1>
+    <div class="gif-container">
+      <img src="https://www.mpproductividad.es/wp-content/uploads/2020/04/Grafico6-Final.gif" alt="Gráfico 6" class="gif-left">
+      <img src="https://www.mpproductividad.es/wp-content/uploads/2020/04/Grafico7-Final.gif" alt="Gráfico 7" class="gif-right">
+    </div>
+    <form (ngSubmit)="calcularCostoMinimo()" class="form-grid">
+      <!-- Columna izquierda -->
+      <div class="left-column">
+        <label for="horasCarga">Horas requeridas de Carga de productos:</label>
+        <label for="horasCarga">...</label>
+        <input type="number" [(ngModel)]="horasCarga" name="horasCarga" required>
+  
+        <label for="horasDescarga">Horas requeridas de Descarga de productos:</label>
+        <label for="horasCarga">...</label>
+        <input type="number" [(ngModel)]="horasDescarga" name="horasDescarga" required>
+  
+        <label for="horasOrganizacion">Horas requeridas para el Orden / organizacion de inventario:</label>
+        <label for="horasCarga"></label>
+        <input type="number" [(ngModel)]="horasOrganizacion" name="horasOrganizacion" required>
+      </div>
+  
+      <!-- Columna derecha -->
+      <div class="right-column">
+        <label for="costoA">A) Costo por Hora Auxiliares Propios:</label>
+        <label for="costoA">  (Carga, Descarga, Control de Inventario)</label>
+        <input type="number" [(ngModel)]="costoA" name="costoA" required>
+  
+        <label for="costoB">B) Costo por Hora Auxiliares Tercerisados </label>
+        <label for="costoB">(Solo Carga, y Control de Inventario):</label>
+        <input type="number" [(ngModel)]="costoB" name="costoB" required>
+  
+        <label for="costoC">C) Costo/Hr de auxiliares temporales :</label>
+        <label for="costoC">(Solo Descarga)</label>
+        <input type="number" [(ngModel)]="costoC" name="costoC" required>
+      </div>
+  
+      <!-- Botón de enviar -->
+      <div class="submit-container">
+        <button type="submit">Calcular</button>
+      </div>
+    </form>
+  
+<!-- Resultado -->
+<div *ngIf="resultado.costo_minimo !== undefined" class="resultado-container">
+    <h2>Resultado</h2>
+    <p class="costo-minimo">Costo mínimo estimado: <strong>Q{{ resultado.costo_minimo }}</strong></p>
+  
+    <h3>Detalles del Cálculo:</h3>
+  
+    <!-- Grupo Carga -->
+    <div class="resultado-grupo">
+      <h4>Carga</h4>
+      <div class="resultado-tipo">
+        <p><strong>Auxiliar Tipo A:</strong> {{ resultado.horas_carga_tipo_A }} horas</p>
+        <p><strong>Auxiliar Tipo B:</strong> {{ resultado.horas_carga_tipo_B }} horas</p>
+      </div>
+    </div>
+  
+    <!-- Grupo Descarga -->
+    <div class="resultado-grupo">
+      <h4>Descarga</h4>
+      <div class="resultado-tipo">
+        <p><strong>Auxiliar Tipo A:</strong> {{ resultado.horas_descarga_tipo_A }} horas</p>
+        <p><strong>Auxiliar Tipo C:</strong> {{ resultado.horas_descarga_tipo_C }} horas</p>
+      </div>
+    </div>
+  
+    <!-- Grupo Organización -->
+    <div class="resultado-grupo">
+      <h4>Organización</h4>
+      <div class="resultado-tipo">
+        <p><strong>Auxiliar Tipo A:</strong> {{ resultado.horas_organizacion_tipo_A }} horas</p>
+        <p><strong>Auxiliar Tipo B:</strong> {{ resultado.horas_organizacion_tipo_B }} horas</p>
+      </div>
+    </div>
+  </div>
